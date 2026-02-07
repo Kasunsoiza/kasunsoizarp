@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 100 5% 96%;
+    --foreground: 200 14% 5%;
+    --card: 0 0% 100%;
+    --card-foreground: 200 14% 5%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 14% 5%;
+    --primary: 225 73% 57%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 100 3% 44%;
+    --secondary-foreground: 200 14% 5%;
+    --muted: 100 5% 92%;
+    --muted-foreground: 100 3% 44%;
+    --accent: 225 73% 57%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 200 10% 85%;
+    --input: 200 10% 85%;
+    --ring: 225 73% 57%;
+    --radius: 0.625rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* Royal Blue Color Scheme */
+    --royal-blue: #4169E1;
+    --royal-blue-dark: #3158d0;
+    --royal-blue-light: #5a7fe8;
+    --royal-blue-50: #eef2ff;
+    --royal-blue-100: #e0e7ff;
+    --royal-blue-200: #c7d2fe;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 225 73% 57%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 225 73% 57%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-[#F6F7F6] text-[#0B0D0E] antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  .font-mono {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(65, 105, 225, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(65, 105, 225, 0.5);
+}
+
+/* Grain overlay */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* A4 Paper dimensions - NO SHADOW */
+.a4-paper {
+  width: 210mm;
+  min-height: 297mm;
+  background: white;
+  /* Shadow removed as requested */
+}
+
+@media (max-width: 768px) {
+  .a4-paper {
+    width: 100%;
+    min-height: auto;
+  }
+}
+
+/* Template styles - Updated to Royal Blue */
+.template-modern {
+  --template-primary: #1e293b;
+  --template-accent: #4169E1;
+  --template-bg: #f8fafc;
+}
+
+.template-classic {
+  --template-primary: #1a1a1a;
+  --template-accent: #4169E1;
+  --template-bg: #fefefe;
+}
+
+.template-ats {
+  --template-primary: #000000;
+  --template-accent: #4169E1;
+  --template-bg: #ffffff;
+}
+
+/* Animation utilities */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 4s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.animate-float-delayed-2 {
+  animation: float 4s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+/* Button hover effects */
+.btn-hover {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-hover:hover {
+  transform: translateY(-2px);
+}
+
+.btn-hover:active {
+  transform: scale(0.98);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(65, 105, 225, 0.12);
+}
+
+/* Mobile optimizations */
+@media (max-width: 1024px) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Progress ring */
+.progress-ring-circle {
+  transition: stroke-dashoffset 0.5s ease;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+/* Smooth scrolling for desktop only */
+@media (min-width: 1025px) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-only {
+    display: block !important;
+  }
+  
+  body {
+    background: white !important;
+  }
+  
+  .a4-paper {
+    box-shadow: none !important;
+    margin: 0 !important;
+    width: 210mm !important;
+    min-height: 297mm !important;
+  }
+}
+
+/* Europin Logo in CV - Bottom Corner */
+.europin-logo-cv {
+  position: absolute;
+  bottom: 8mm;
+  right: 8mm;
+  opacity: 0.4;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid #4169E1;
+  outline-offset: 2px;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(65, 105, 225, 0.2);
+  color: inherit;
+}
